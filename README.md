@@ -1,6 +1,6 @@
 # DesignPatterns
 
-1) read string \n
+1) read string 
 2) read subject
  a - create Node for subject
  b - set Node in NodeMap
