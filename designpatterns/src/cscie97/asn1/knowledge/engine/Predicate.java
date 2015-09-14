@@ -2,17 +2,17 @@ package cscie97.asn1.knowledge.engine;
 
 public class Predicate {
 
-	String predicate;
+	String identifier;
 	
-	public Predicate(String predicate) {
-		this.predicate = predicate;
+	public Predicate(String identifier) {
+		this.identifier = identifier;
 	}
 
 	public String getPredicate() {
-		return predicate;
+		return identifier;
 	}
 
-	public void setPredicate(String predicate) {
-		this.predicate = predicate;
+	public void setPredicate(String identifier) {
+		this.identifier = identifier;
 	}
 }
