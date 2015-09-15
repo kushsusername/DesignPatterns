@@ -4,17 +4,29 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.List;
-
-import javax.imageio.IIOException;
 
 public class Importer {
 
-	public void importTripleFile(String inputFileName) throws IOException {
+	public void importFile(String inputFileName) throws InvalidInputException, IOException {
 		
 		Path path = Paths.get(inputFileName);
+		KnowledgeGraph kGraph = KnowledgeGraph.getInstance();
 		try {
 			List<String> inputLines = Files.readAllLines(path);
+			inputLines.removeAll(Arrays.asList("", null));
+			for (String sentance : inputLines) {
+				String[] words = sentance.replace(".", "").split(" ");
+				if (words[0] != null && words[1] != null && words[2] != null) {
+					kGraph.nodeMap.put(words[0], new Node(words[0]));
+					kGraph.predicateMap.put(words[1], new Predicate(words[1]));
+					kGraph.nodeMap.put(words[2], new Node(words[2]));
+					kGraph.tripleMap.put(sentance, new Triple(new Node(words[0]), new Predicate(words[1]), new Node(words[2])));
+				} else {
+					throw new InvalidInputException("Input data is invalid. Please check file and try again.");
+				}
+			}
 		} catch (IOException e) {
 			// The user doesn't need to see a whole stack trace, so just a simple english answer should suffice
 			System.out.println("Unable to locate/read file; please check input and try again.");

@@ -8,7 +8,7 @@ public class Predicate {
 		this.identifier = identifier;
 	}
 
-	public String getPredicate() {
+	public String getIdentifier() {
 		return identifier;
 	}
 

@@ -6,16 +6,19 @@ import java.util.Set;
 
 public class KnowledgeGraph {
 
-	HashMap<String, Node> nodeMap = new HashMap<String, Node>();
-	HashMap<String, Predicate> predicate = new HashMap<String, Predicate>();
-	HashMap<String, Triple> tripleMap = new HashMap<String, Triple>();
-	HashMap<String, Set<Triple>> queryMapSet = new HashMap<String, Set<Triple
-			>>();
+	HashMap<String, Node> nodeMap;
+	HashMap<String, Predicate> predicateMap;
+	HashMap<String, Triple> tripleMap;
+	HashMap<String, Set<Triple>> queryMapSet;
 	
 	
 	public static KnowledgeGraph knowledgeGraph = new KnowledgeGraph();
 	
-	public KnowledgeGraph getInstance() {
+	public static KnowledgeGraph getInstance() {
+		knowledgeGraph.nodeMap = new HashMap<String, Node>();
+		knowledgeGraph.predicateMap = new HashMap<String, Predicate>();
+		knowledgeGraph.tripleMap = new HashMap<String, Triple>();
+		knowledgeGraph.queryMapSet = new HashMap<String, Set<Triple>>();
 		return knowledgeGraph;
 	}
 
