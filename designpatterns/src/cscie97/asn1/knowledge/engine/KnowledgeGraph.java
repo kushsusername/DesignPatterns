@@ -17,6 +17,10 @@ public class KnowledgeGraph {
 	
 	public static KnowledgeGraph knowledgeGraph;
 	
+	/** gets the instance of the KnowledgeGraph, if it doesn't exist, creates a new one
+	 * 
+	 * @return the KnowledgeGraph Singleton
+	 */
 	public static KnowledgeGraph getInstance() {
 		if(knowledgeGraph == null) {
 			knowledgeGraph = new KnowledgeGraph();
@@ -88,7 +92,10 @@ public class KnowledgeGraph {
 	 * @return the list of triples associated to that query
 	 */
 	public Set<Triple> executeQuery(Triple query) {
-		return queryMapSet.get(query.getIdentifier());
+		Set<Triple> resultSet = queryMapSet.get(query.getIdentifier());
+		if(resultSet == null){
+			resultSet = new HashSet<>();
+		}
+		return resultSet;
 	}
-	
 }

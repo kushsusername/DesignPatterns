@@ -7,6 +7,12 @@ public class Triple {
 	Node object;
 	String identifier;
 
+	/** The triple class essentially represents a basic sentance with components subject, predicate, object
+	 * 
+	 * @param subject
+	 * @param predicate
+	 * @param object
+	 */
 	public Triple(Node subject, Predicate predicate, Node object) {
 		this.subject = subject;
 		this.predicate = predicate;
@@ -28,7 +34,5 @@ public class Triple {
 	public void setIdentifier(String identifier) {
 		this.identifier = identifier;
 	}
-	
-	
 	
 }

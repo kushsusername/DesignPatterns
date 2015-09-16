@@ -4,6 +4,10 @@ public class Node {
 
 	String identifier;
 	
+	/** represents the subjects and objects part of a sentence 
+	 * 
+	 * @param identifier unique string identity of the node
+	 */
 	public Node(String identifier) {
 		this.identifier = identifier;
 	}

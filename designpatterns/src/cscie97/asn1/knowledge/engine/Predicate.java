@@ -4,6 +4,10 @@ public class Predicate {
 
 	String identifier;
 	
+	/** Interprets the predicate portion of the triple
+	 * 
+	 * @param identifier the string that identifies the predicate
+	 */
 	public Predicate(String identifier) {
 		this.identifier = identifier;
 	}

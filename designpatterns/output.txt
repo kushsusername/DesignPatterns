@@ -1,0 +1,42 @@
+starbucks sells coffee
+starbucks sells coffee
+
+starbucks sells donuts
+
+starbucks sells ?
+starbucks sells cake
+starbucks sells coffee
+
+? has_store_location harvardsquare
+starbucks has_store_location harvardsquare
+harvardcoop has_store_location harvardsquare
+
+lucy ? ?
+lucy works_at starbucks
+lucy plays_instrument guitar
+lucy works_with joe
+lucy works_at harvardcoop
+lucy lives_near harvardsquare
+lucy has_friend joe
+lucy likes_to_eat cake
+lucy plays_sport soccer
+
+joe plays_sport ?
+joe plays_sport hockey
+joe plays_sport soccer
+joe plays_sport cricket
+
+lucy plays_sport ?
+lucy plays_sport soccer
+
+? plays_sport ?
+joe plays_sport hockey
+joe plays_sport soccer
+joe plays_sport cricket
+lucy plays_sport soccer
+
+? sells coffee  
+
+? ? harvardcoop
+lucy works_at harvardcoop
+

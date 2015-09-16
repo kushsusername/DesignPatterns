@@ -1,4 +1,4 @@
-﻿Starbucks sells Coffee.
+Starbucks sells Coffee.
 Starbucks sells Donuts.
 Starbucks sells ?.
 ? has_store_location HarvardSquare.

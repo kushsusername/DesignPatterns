@@ -51,13 +51,8 @@ public class TestDriver {
 		try {
 			qEngine.executeQueryFile(queryFile);
 		} catch (IOException e) {
-			
+			System.out.println("File not found, please check query file and try again.");
 		}
-		
-		//TODO: Add something here.
-		//TODO: Adding crap to setup this damn branch
-		
-		// String = "mary works_at starbucks"
 		
 	}
 }

@@ -10,6 +10,13 @@ import java.util.List;
 
 public class Importer {
 
+	/** Import file, reads the file into list of strings per line, setups up minor components of the 
+	 * knowledge graph then calls the knowledge graph to setup queryMapSet passing it a list of triples
+	 * 
+	 * @param inputFileName 
+	 * @throws InvalidInputException Input data is invalid
+	 * @throws IOException File not found
+	 */
 	public void importFile(String inputFileName) throws InvalidInputException, IOException {
 		
 		Path path = Paths.get(inputFileName);
@@ -19,7 +26,8 @@ public class Importer {
 			List<Triple> tripleList = new ArrayList<>();
 			inputLines.removeAll(Arrays.asList("", null));
 			for (String sentance : inputLines) {
-				String[] words = sentance.replace(".", "").toLowerCase().split(" ");
+				sentance = sentance.toLowerCase();
+				String[] words = sentance.replace(".", "").split(" ");
 				if (words[0] != null && words[1] != null && words[2] != null) {
 					kGraph.nodeMap.put(words[0], new Node(words[0]));
 					kGraph.predicateMap.put(words[1], new Predicate(words[1]));
