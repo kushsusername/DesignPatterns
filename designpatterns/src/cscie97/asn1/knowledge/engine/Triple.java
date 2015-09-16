@@ -14,6 +14,14 @@ public class Triple {
 		this.identifier = subject.getIdentifier() + " " + predicate.getIdentifier() + " " + object.getIdentifier() + ".";
 	}
 	
+	public Triple(String identifier) {
+		String[] words = identifier.replace(".", "").split(" ");
+		this.subject = new Node(words[0]);
+		this.predicate = new Predicate(words[1]);
+		this.object = new Node(words[2]);
+		this.identifier = identifier;
+	}
+	
 	public String getIdentifier() {
 		return identifier;
 	}

@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -15,18 +16,21 @@ public class Importer {
 		KnowledgeGraph kGraph = KnowledgeGraph.getInstance();
 		try {
 			List<String> inputLines = Files.readAllLines(path);
+			List<Triple> tripleList = new ArrayList<>();
 			inputLines.removeAll(Arrays.asList("", null));
 			for (String sentance : inputLines) {
-				String[] words = sentance.replace(".", "").split(" ");
+				String[] words = sentance.replace(".", "").toLowerCase().split(" ");
 				if (words[0] != null && words[1] != null && words[2] != null) {
 					kGraph.nodeMap.put(words[0], new Node(words[0]));
 					kGraph.predicateMap.put(words[1], new Predicate(words[1]));
 					kGraph.nodeMap.put(words[2], new Node(words[2]));
 					kGraph.tripleMap.put(sentance, new Triple(new Node(words[0]), new Predicate(words[1]), new Node(words[2])));
+					tripleList.add(new Triple(sentance.replace(".", "")));
 				} else {
 					throw new InvalidInputException("Input data is invalid. Please check file and try again.");
 				}
 			}
+			kGraph.importTriples(tripleList);
 		} catch (IOException e) {
 			// The user doesn't need to see a whole stack trace, so just a simple english answer should suffice
 			System.out.println("Unable to locate/read file; please check input and try again.");
