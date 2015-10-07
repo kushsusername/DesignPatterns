@@ -8,9 +8,9 @@ public class Sensor extends IOT {
 		super();
 	}
 	
-	public Sensor(String name, String type, String houseName, String roomName, String status) {
+	public Sensor(String name, String type, String houseName, String roomName) {
 		super(name, type, houseName, roomName);
-		this.status = status;
+		this.status = "";
 	}
 	
 	public String getStatus() {
@@ -24,7 +24,7 @@ public class Sensor extends IOT {
 	public String toString() {
 		return " sensor: " + this.getName() 
 				+ " type: " + this.getType() 
-				+ " status: " + this.getStatus() == null ? "unknown" : this.getStatus();
+				+ " status: " + (this.getStatus() == null ? "unknown" : this.getStatus());
 	}
 
 }

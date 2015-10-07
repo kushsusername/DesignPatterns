@@ -47,10 +47,10 @@ public class House {
 		String output = " house: " + this.name;
 		
 		for (String room : rooms.keySet()) {
-			output.concat(rooms.get(room).toString());
+			output = output + (rooms.get(room).toString());
 		}
 		for (String iot : iots.keySet()) {
-			output.concat(iots.get(iot).toString());
+			output = output + (iots.get(iot).toString());
 		}
 		
 		return output;

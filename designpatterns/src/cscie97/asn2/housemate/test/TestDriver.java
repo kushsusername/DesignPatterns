@@ -1,11 +1,16 @@
 package cscie97.asn2.housemate.test;
 
+import cscie97.asn2.housemate.model.HouseMateModelServiceController;
+
 public class TestDriver {
 
-	public void main(String[] args) {
-		if(args[0] == null){
-			System.out.println("Please provide an input setup file for the housemate system.");
-			return;
+	public static void main(String[] args) {
+		HouseMateModelServiceController hmmsController = new HouseMateModelServiceController();
+		try {
+			hmmsController.runCommands(args[0]);
+		} catch (IndexOutOfBoundsException e) {
+			System.out.println("Please input filename.");
 		}
+		
 	}
 }

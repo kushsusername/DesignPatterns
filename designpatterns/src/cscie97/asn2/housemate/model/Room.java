@@ -42,6 +42,6 @@ public class Room {
 	}
 	
 	public String toString() {
-		return " room: " + this.name + " floor: " + floor.toString() + " type: " + this.type;
+		return (" room: " + this.name + " floor: " + (floor.toString()) + " type: " + this.type);
 	}
 }

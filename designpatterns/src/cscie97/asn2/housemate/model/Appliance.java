@@ -26,14 +26,14 @@ public class Appliance extends IOT {
 	
 	public String toString() {
 		
-		return " sensor: " + this.getName() 
+		return " appliance: " + this.getName() 
 				+ " type: " + this.getType() 
 				+ this.getStatus().toString();
 	}
 	public String toStringStatus(String applianceStatus) {
-		return " sensor: " + this.getName() 
+		return " appliance: " + this.getName() 
 				+ " type: " + this.getType() 
 				+ " status: " + applianceStatus
-				+ " value: " + this.getStatus().get(applianceStatus) == null ? "unknown" : this.getStatus().get(applianceStatus);
+				+ " value: " + (this.getStatus().get(applianceStatus) == null ? "unknown" : this.getStatus().get(applianceStatus));
 	}
 }

@@ -23,7 +23,7 @@ public class HouseMateModelService {
 	}
 	public void showHouse(String houseName) throws HouseNotFoundException {
 		if (houses.containsKey(houseName)) {
-			houses.get(houseName).toString();
+			System.out.println(houses.get(houseName).toString());
 		} else {
 			throw new HouseNotFoundException(houseName);
 		}
@@ -39,7 +39,7 @@ public class HouseMateModelService {
 	public void showRoom(String houseName, String roomName) throws RoomNotFoundException, HouseNotFoundException {
 		if (houses.containsKey(houseName)) {
 			if(houses.get(houseName).getRooms().containsKey(roomName)) {
-				houses.get(houseName).getRooms().get(roomName).toString();
+				System.out.println(houses.get(houseName).getRooms().get(roomName).toString());
 			} else {
 				throw new RoomNotFoundException(roomName);
 			}
@@ -62,7 +62,7 @@ public class HouseMateModelService {
 	public void addSensor(String sensorName, String sensorType, String houseName, String roomName) throws HouseNotFoundException, RoomNotFoundException {
 		if (houses.containsKey(houseName)) {
 			if(houses.get(houseName).getRooms().containsKey(roomName)) {
-				houses.get(houseName).getIots().put(sensorName, new Sensor(sensorName, sensorType, houseName, roomName, null));
+				houses.get(houseName).getIots().put(sensorName, new Sensor(sensorName, sensorType, houseName, roomName));
 			} else {
 				throw new RoomNotFoundException(roomName);
 			}
@@ -142,7 +142,14 @@ public class HouseMateModelService {
 		}
 	}
 	public void show() {
-		
+		String output = "";
+		for (String house : houses.keySet()) {
+			output = output + houses.get(house).toString();
+		}
+		for (String occupant : occupants.keySet()) {
+			output = output + occupants.get(occupant).toString();
+		}
+		System.out.println(output);
 	}
 	
 }
