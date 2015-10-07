@@ -21,13 +21,13 @@ set  appliance house1:kitchen1:oven1 status power value ON
 set  appliance house1:kitchen1:oven1 status temperature value 350
 	 
 #	show the temperature of the oven
-show  appliace house1:kitchen1:oven1 status temperature  
+show  appliance house1:kitchen1:oven1 status temperature  
 	
 # 	show all state for the oven  
-show  appliace house1:kitchen1:oven1  
+show  appliance house1:kitchen1:oven1  
 	 
 # 	show all state for the smoke detector  
-show  appliace house1:kitchen1:smoke_detector1  
+show  sensor house1:kitchen1:smoke_detector1  
 	 
 # 	show the configuration for the house1
 show configuration house house1
