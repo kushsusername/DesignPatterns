@@ -1,4 +1,4 @@
-package cscie97.asn2.housemate.model;
+package cscie97.asn3.housemate.model;
 
 public class RoomNotFoundException extends Exception {
 

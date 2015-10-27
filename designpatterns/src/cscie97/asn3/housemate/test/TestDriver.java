@@ -1,11 +1,11 @@
-package cscie97.asn2.housemate.test;
+package cscie97.asn3.housemate.test;
 
-import cscie97.asn2.housemate.model.HouseMateModelServiceController;
+import cscie97.asn3.housemate.model.HouseMateCommandImporter;
 
 public class TestDriver {
 
 	public static void main(String[] args) {
-		HouseMateModelServiceController hmmsController = new HouseMateModelServiceController();
+		HouseMateCommandImporter hmmsController = new HouseMateCommandImporter();
 		try {
 			hmmsController.runCommands(args[0]);
 		} catch (IndexOutOfBoundsException e) {

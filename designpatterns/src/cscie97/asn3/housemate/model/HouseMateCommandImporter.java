@@ -1,4 +1,4 @@
-package cscie97.asn2.housemate.model;
+package cscie97.asn3.housemate.model;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -7,7 +7,7 @@ import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
 
-public class HouseMateModelServiceController {
+public class HouseMateCommandImporter {
 
 	public void runCommands(String fileName) {
 		
