@@ -24,7 +24,7 @@ public class Sensor extends IOT {
 	public String toString() {
 		return " sensor: " + this.getName() 
 				+ " type: " + this.getType() 
-				+ " status: " + (this.getStatus() == null ? "unknown" : this.getStatus());
+				+ " status: " + ((this.getStatus() == null || this.getStatus() == "") ? "unknown" : this.getStatus());
 	}
 
 }

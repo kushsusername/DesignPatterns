@@ -28,6 +28,17 @@ public class House {
 	public Map<String, IOT> getIots() {
 		return iots;
 	}
+	
+	public Map<String, Appliance> getAppliances() {
+		Map<String, Appliance> appliances = new HashMap<>();
+		
+		for (IOT iot : getIots().values()) {
+			if(iot.getClass() == Appliance.class) {
+				appliances.put(iot.getName(), (Appliance) iot);
+			}
+		}
+		return appliances;
+	}
 
 	public void setIots(Map<String, IOT> iots) {
 		this.iots = iots;

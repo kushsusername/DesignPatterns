@@ -8,7 +8,7 @@ define room kitchen1 floor 1 type kitchen house house1
 define occupant joe_smith type adult status active
 
 #	add joe_smith as an occupant to house1
-add occupant joe_smith to_house house1
+set occupant joe_smith to_house house1:room1
 
 #	create a new sensor in a room
 define sensor smoke_detector1 type smoke_detector room house1:kitchen1

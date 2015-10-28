@@ -1,7 +1,9 @@
 package cscie97.asn3.housemate.model;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class HouseMateModelService {
 
@@ -111,6 +113,20 @@ public class HouseMateModelService {
 					((Appliance)houses.get(houseName).getIots().get(applianceName)).getStatus().put(applianceStatus, applianceStatusValue);
 				} else {
 					throw new ApplianceNotFoundException(applianceName);
+				}
+			} else {
+				throw new RoomNotFoundException(roomName);
+			}
+		} else {
+			throw new HouseNotFoundException(houseName);
+		}
+	}
+	public void setAppliancesByType(String applianceType, String houseName, String roomName, String applianceStatus, String applianceStatusValue) throws HouseNotFoundException, RoomNotFoundException {
+		if (houses.containsKey(houseName)) {
+			if(houses.get(houseName).getRooms().containsKey(roomName)) {
+				Set<String> appliances = houses.get(houseName).getAppliances().keySet();
+				for (String app : appliances) {
+					houses.get(houseName).getAppliances().get(app).getStatus().put(applianceStatus, applianceStatusValue);
 				}
 			} else {
 				throw new RoomNotFoundException(roomName);
