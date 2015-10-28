@@ -3,7 +3,7 @@ package cscie97.asn3.housemate.model;
 public class LightsOffCommand implements Command {
 
 	@Override
-	public void execute(Location location) throws HouseNotFoundException, RoomNotFoundException {
+	public void execute(String name, Location location) throws HouseNotFoundException, RoomNotFoundException {
 		HouseMateModelService hmms = HouseMateModelService.getInstance();
 		hmms.setAppliancesByType("light", location.getHouseName(), location.getRoomName(), "mode", "off");
 	}
