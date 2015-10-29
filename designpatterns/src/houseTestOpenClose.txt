@@ -64,4 +64,3 @@ set sensor house1:dining_room1:camera2 status OCCUPANT_DETECTED value jill_smith
 set appliance house1:dining_room1:ava2 status LISTENING value "joe_smith says: 'where is jill_smith?'"
 # where is jill's husband joe?
 set appliance house1:dining_room1:ava2 status LISTENING value "jill_smith says: 'where is joe_smith?'"
-

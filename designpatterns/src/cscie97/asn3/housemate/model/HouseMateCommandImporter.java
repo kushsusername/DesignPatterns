@@ -6,18 +6,24 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class HouseMateCommandImporter {
 
 	public void runCommands(String fileName) {
 		
 		HouseMateModelService  hmms = HouseMateModelService.getInstance();
+		HouseMateControllerService hmcs = new HouseMateControllerService();
 		Path path = Paths.get(fileName);
 		Location location = null;
+		Pattern p = Pattern.compile("\\'([^\\\"]*)\\'");
+		Matcher m = null;
 		try {
 			List<String> commandLines = Files.readAllLines(path);
 			commandLines.removeAll(Arrays.asList("", null));
 			for (String command : commandLines) {
+				command = command.toLowerCase();
 				String[] inputs = command.split(" ");
 				for (int i=0; i < inputs.length ; i++){
 					try{
@@ -66,13 +72,22 @@ public class HouseMateCommandImporter {
 									case "sensor":
 										String[] sensorInput = inputs[i+1].split(":");
 										location = new Location(sensorInput[0], sensorInput[1]);
-										hmms.setSensor(sensorInput[2], sensorInput[0], inputs[i+3]);
+										if(command.contains("occupant")) {
+											hmcs.runSensorRule(inputs[i+5], inputs[i+3], location);
+										} else {
+											hmms.setSensor(sensorInput[2], sensorInput[0], inputs[i+3]);
+										}
 										i = inputs.length;
 										break;
 									case "appliance":
 										String[] applicationInput = inputs[i+1].split(":");
 										location = new Location(applicationInput[0], applicationInput[1]);
-										hmms.setAppliance(applicationInput[2], applicationInput[0], applicationInput[1], inputs[i+3], inputs[i+5]);
+										m = p.matcher(command);
+										if(m.find()) {
+											hmcs.runApplianceRule(m.group(1), location);
+										} else {
+											hmms.setAppliance(applicationInput[2], applicationInput[0], applicationInput[1], inputs[i+3], inputs[i+5]);
+										}
 										i = inputs.length;
 										break;
 									default:

@@ -22,7 +22,7 @@ public class LocateOccupantCommand implements Command {
 		HouseMateModelService hmms = HouseMateModelService.getInstance();
 		Location occupantLocation = hmms.occupants.get(name).getLocation();
 		if (occupantLocation != null) {
-			System.out.println(name + " is located at " + hmms.occupants.get(name).getLocation().toString());
+			System.out.println(name + " is located at " + hmms.occupants.get(name).getLocation().getHouseName() + ":" + hmms.occupants.get(name).getLocation().getRoomName());
 		} else {
 			System.out.println("Location of " + name + " was not found.");
 		}

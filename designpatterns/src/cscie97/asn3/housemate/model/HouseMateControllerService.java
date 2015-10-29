@@ -1,6 +1,6 @@
 package cscie97.asn3.housemate.model;
 
-public class HouseNameControllerService {
+public class HouseMateControllerService {
 
 	KnowledgeGraph kgraph = KnowledgeGraph.getInstance();
 	HouseMateModelService hmms = HouseMateModelService.getInstance();
@@ -39,6 +39,7 @@ public class HouseNameControllerService {
 			kgImporter.updateOccupant(name + " status inactive");
 		}
 		command.execute(name, location);
+		command.logEvent(rule);
 	}
 	
 	public void runApplianceRule(String userCommand, Location location) throws HouseNotFoundException, RoomNotFoundException {
@@ -70,5 +71,6 @@ public class HouseNameControllerService {
 			}
 		}
 		command.execute(name, location);
+		command.logEvent(userCommand);
 	}
 }

@@ -12,5 +12,4 @@ public class OpenDoorCommand implements Command {
 	public void logEvent(String command) {
 		System.out.println("Command: " + command + " Result: Doors Opened");
 	}
-
 }

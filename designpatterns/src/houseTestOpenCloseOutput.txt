@@ -1,0 +1,20 @@
+Command: open door Result: Doors Opened
+ appliance: door1 type: door{mode=open}
+ appliance: door3 type: door{}
+ appliance: window1 type: window{}
+ appliance: window5 type: window{}
+Command: open door Result: Doors Opened
+Command: open window Result: Windows Opened
+ appliance: door1 type: door{mode=open}
+ appliance: door3 type: door{}
+ appliance: door5 type: door{mode=open}
+ appliance: window1 type: window{}
+ appliance: window5 type: window{mode=open}
+Command: occupant_leaving Result: Lights Off
+Command: occupant_detected Result: Lights On
+ appliance: light1 type: light{}
+ appliance: light3 type: light{mode=on}
+ appliance: light5 type: light{mode=off}
+Command: occupant_detected Result: Lights On
+jill_smith is located at house1:dining_room1
+joe_smith is located at house1:bed_room1

@@ -1,6 +1,0 @@
- appliance: oven1 type: oven status: temperature value: 350
- appliance: oven1 type: oven{temperature=350, power=ON}
- sensor: smoke_detector1 type: smoke_detector status: 
- house: house1 room: kitchen1 floor: 1 type: kitchen appliance: oven1 type: oven{temperature=350, power=ON} sensor: smoke_detector1 type: smoke_detector status: 
- room: kitchen1 floor: 1 type: kitchen
- house: house1 room: kitchen1 floor: 1 type: kitchen appliance: oven1 type: oven{temperature=350, power=ON} sensor: smoke_detector1 type: smoke_detector status:  occupant: joe_smith type: adult status: active

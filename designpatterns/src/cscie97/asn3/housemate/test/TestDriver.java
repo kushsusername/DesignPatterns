@@ -11,6 +11,5 @@ public class TestDriver {
 		} catch (IndexOutOfBoundsException e) {
 			System.out.println("Please input filename.");
 		}
-		
 	}
 }

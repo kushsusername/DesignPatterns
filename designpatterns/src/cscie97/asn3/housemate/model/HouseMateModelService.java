@@ -126,7 +126,9 @@ public class HouseMateModelService {
 			if(houses.get(houseName).getRooms().containsKey(roomName)) {
 				Set<String> appliances = houses.get(houseName).getAppliances().keySet();
 				for (String app : appliances) {
-					houses.get(houseName).getAppliances().get(app).getStatus().put(applianceStatus, applianceStatusValue);
+					if(houses.get(houseName).getAppliances().get(app).getType().equalsIgnoreCase(applianceType) && houses.get(houseName).getAppliances().get(app).getLocation().getRoomName().equalsIgnoreCase(roomName)) {
+						houses.get(houseName).getAppliances().get(app).getStatus().put(applianceStatus, applianceStatusValue);
+					}
 				}
 			} else {
 				throw new RoomNotFoundException(roomName);
