@@ -163,9 +163,9 @@ set sensor house1:dining_room1:camera1 status OCCUPANT_DETECTED value joe_smith
 # camera 1 detects Rover leaving room1
 set sensor house1:dining_room1:camera1 status OCCUPANT_LEAVING value "Rover"
 # Ava1 hears Joe Smith give command "open door"
-set sensor house1:dining_room1:ava2 status LISTENING value "joe_smith says: 'open door'"
+set appliance house1:dining_room1:ava2 status LISTENING value "joe_smith says: 'open door'"
 # Ava1 hears Joe Smith ask question "where is Rover?"
-set sensor house1:dining_room1:ava2 status LISTENING value "joe_smith says: 'where is Rover?'"
+set appliance house1:dining_room1:ava2 status LISTENING value "joe_smith says: 'where is Rover?'"
 
 	 
 #	show the temperature of the oven

@@ -98,4 +98,37 @@ public class KnowledgeGraph {
 		}
 		return resultSet;
 	}
+
+	public Map<String, Node> getNodeMap() {
+		return nodeMap;
+	}
+
+	public void setNodeMap(Map<String, Node> nodeMap) {
+		this.nodeMap = nodeMap;
+	}
+
+	public Map<String, Predicate> getPredicateMap() {
+		return predicateMap;
+	}
+
+	public void setPredicateMap(Map<String, Predicate> predicateMap) {
+		this.predicateMap = predicateMap;
+	}
+
+	public Map<String, Triple> getTripleMap() {
+		return tripleMap;
+	}
+
+	public void setTripleMap(Map<String, Triple> tripleMap) {
+		this.tripleMap = tripleMap;
+	}
+
+	public Map<String, Set<Triple>> getQueryMapSet() {
+		return queryMapSet;
+	}
+
+	public void setQueryMapSet(Map<String, Set<Triple>> queryMapSet) {
+		this.queryMapSet = queryMapSet;
+	}
+	
 }

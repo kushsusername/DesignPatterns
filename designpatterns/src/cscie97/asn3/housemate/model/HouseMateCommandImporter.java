@@ -13,7 +13,7 @@ public class HouseMateCommandImporter {
 		
 		HouseMateModelService  hmms = HouseMateModelService.getInstance();
 		Path path = Paths.get(fileName);
-		
+		Location location = null;
 		try {
 			List<String> commandLines = Files.readAllLines(path);
 			commandLines.removeAll(Arrays.asList("", null));
@@ -65,11 +65,13 @@ public class HouseMateCommandImporter {
 										break;
 									case "sensor":
 										String[] sensorInput = inputs[i+1].split(":");
+										location = new Location(sensorInput[0], sensorInput[1]);
 										hmms.setSensor(sensorInput[2], sensorInput[0], inputs[i+3]);
 										i = inputs.length;
 										break;
 									case "appliance":
 										String[] applicationInput = inputs[i+1].split(":");
+										location = new Location(applicationInput[0], applicationInput[1]);
 										hmms.setAppliance(applicationInput[2], applicationInput[0], applicationInput[1], inputs[i+3], inputs[i+5]);
 										i = inputs.length;
 										break;

@@ -57,4 +57,5 @@ public class KnowledgeGraphImporter {
 		Triple occupantTriple = new Triple(new Node(words[0]), new Predicate(words[1]), new Node(words[2]));
 		kGraph.importTriples(tripleList);
 	}
+	
 }

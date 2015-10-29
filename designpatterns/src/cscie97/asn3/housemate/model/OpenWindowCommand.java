@@ -1,6 +1,6 @@
 package cscie97.asn3.housemate.model;
 
-public class OpenWindow implements Command {
+public class OpenWindowCommand implements Command {
 
 	@Override
 	public void execute(String name, Location location) throws HouseNotFoundException, RoomNotFoundException {
