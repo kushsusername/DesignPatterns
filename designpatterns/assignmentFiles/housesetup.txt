@@ -5,36 +5,36 @@ define house house3
 
 # 	define a new room instance and attach to a house
 define room kitchen1 floor 1 type kitchen house house1
-define room dining_room1 floor 1 type dining_room house house1
-define room closet1 floor 1 type closet house house1
+define room dining_room1 floor 1 type dining_room  house house1
+define room closet1 floor 1 type closet  house house1
 define room bed_room1 floor 2 type bedroom house house1
 define room bed_room2 floor 2 type bedroom house house1
 define room bath_room1 floor 2 type bathroom house house1
 
 define room kitchen1 floor 1 type kitchen house house2
-define room dining_room1 floor 1 type dining_room house house2
-define room closet1 floor 1 type closet house house2
+define room dining_room1 floor 1 type dining_room  house house2
+define room closet1 floor 1 type closet  house house2
 define room bed_room1 floor 2 type bedroom house house2 
 define room bed_room2 floor 2 type bedroom house house2
 define room bath_room1 floor 2 type bathroom house house2
 	
 #	define a new occupant
-define occupant joe_smith type adult status active
-define occupant jill_smith type adult status active
-define occupant Rover type pet status active
+define occupant joe_smith type adult
+define occupant jill_smith type adult
+define occupant Rover type pet  
 
-define occupant bill_roberts type adult status active
-define occupant mary_roberts type adult status active
-define occupant Fuzz type pet status active
+define occupant bill_roberts type adult
+define occupant mary_roberts type adult
+define occupant Fuzz type pet  
 
 #	add joe_smith as an occupant to house1
-add occupant joe_smith to_house house1:kitchen1
-add occupant jill_smith to_house house1:bed_room1
-add occupant Rover to_house house1:dining_room1
+add occupant joe_smith to_house house1
+add occupant jill_smith to_house house1
+add occupant Rover to_house house1
 
-add occupant bill_roberts to_house house2:bed_room1
-add occupant mary_roberts to_house house2:bed_room1
-add occupant Fuzz to_house house2:kitchen1
+add occupant bill_roberts to_house house2
+add occupant mary_roberts to_house house2
+add occupant Fuzz to_house house2
 
 #	create a new sensor in a room
 define sensor smoke_detector1 type smoke_detector room house1:kitchen1
@@ -101,9 +101,9 @@ define appliance window3 type window room house1:bed_room1
 define appliance window4 type window room house1:bed_room2
 define appliance window5 type window room house1:bath_room1
 
-set appliance house1:bed_room1:door3 status mode value OPEN 
-set appliance house1:bed_room1:light3 status mode value ON 
-set appliance house1:bed_room1:window3 status mode value OPEN 
+set appliance house1:bed_room1:door3 status mode OPEN 
+set appliance house1:bed_room1:light3 status mode ON 
+set appliance house1:bed_room1:window3 status mode OPEN 
 
 define appliance oven1 type oven room house2:kitchen1
 define appliance tv1 type TV room house2:bed_room1
@@ -133,39 +133,39 @@ define appliance window3 type window room house2:bed_room1
 define appliance window4 type window room house2:bed_room2
 define appliance window5 type window room house2:bath_room1
 
-set appliance house2:bed_room1:door3 status mode value CLOSED 
-set appliance house2:bed_room1:light3 status mode value ON 
-set appliance house2:bed_room1:window3 status mode value CLOSED 
+set appliance house2:bed_room1:door3 status mode CLOSED 
+set appliance house2:bed_room1:light3 status mode ON 
+set appliance house2:bed_room1:window3 status mode CLOSED 
 
 #	turn the oven on and set the temperature to 350 degrees
-set appliance house1:kitchen1:oven1 status power value ON
-set appliance house1:kitchen1:oven1 status temperature value 350
-set appliance house1:bed_room1:tv1 status power value on 
-set appliance house1:bed_room1:tv1 status channel value PBS 
+set  appliance house1:kitchen1:oven1 status power value ON
+set  appliance house1:kitchen1:oven1 status temperature value 350
+set  appliance house1:bed_room1:tv1 status power value on 
+set  appliance house1:bed_room1:tv1 status channel value PBS 
 
-set appliance house2:kitchen1:oven1 status power value ON
-set appliance house2:kitchen1:oven1 status temperature value 400 
-set appliance house2:bed_room1:tv1 status power value on 
-set appliance house2:bed_room1:tv1 status channel value CNN 
+set  appliance house2:kitchen1:oven1 status power value ON
+set  appliance house2:kitchen1:oven1 status temperature value 400 
+set  appliance house2:bed_room1:tv1 status power value on 
+set  appliance house2:bed_room1:tv1 status channel value CNN 
 
-add occupant joe_smith to_house house1:kitchen1
-add occupant jill_smith to_house house1:kitchen1
-add occupant Rover to_house house1:kitchen1
+add occupant joe_smith to_house house1
+add occupant jill_smith to_house house1
+add occupant Rover to_house house1
 
-add occupant bill_roberts to_house house2:kitchen1
-add occupant mary_roberts to_house house2:kitchen1
-add occupant Fuzz to_house house2:kitchen1
+add occupant bill_roberts to_house house2
+add occupant mary_roberts to_house house2
+add occupant Fuzz to_house house2
 
 # set smoke detector status to OK
 set sensor house1:room1:smoke_detector1 status MODE value OK
 # camera1 detects Joe Smith entering room 1 
 set sensor house1:dining_room1:camera1 status OCCUPANT_DETECTED value joe_smith
 # camera 1 detects Rover leaving room1
-set sensor house1:dining_room1:camera1 status OCCUPANT_LEAVING value Rover
+set sensor house1:dining_room1:camera1 status OCCUPANT_LEAVING value "Rover"
 # Ava1 hears Joe Smith give command "open door"
-set appliance house1:dining_room1:ava2 status LISTENING value "joe_smith says: 'open door'"
+set sensor house1:dining_room1:ava2 status LISTENING value "joe_smith says: 'open door'"
 # Ava1 hears Joe Smith ask question "where is Rover?"
-set appliance house1:dining_room1:ava2 status LISTENING value "joe_smith says: 'where is Rover?'"
+set sensor house1:dining_room1:ava2 status LISTENING value "joe_smith says: 'where is Rover?'"
 
 	 
 #	show the temperature of the oven
