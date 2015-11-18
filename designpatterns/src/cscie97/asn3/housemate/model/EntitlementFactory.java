@@ -1,27 +1,25 @@
 package cscie97.asn3.housemate.model;
 
-public class EntitlementFactory extends AbstractEntitlementFactory {
+public class EntitlementFactory implements AbstractEntitlementFactory {
 
 	@Override
-	User createUser(String id, String name) {
+	public User createUser(String id, String name) {
 		return new User(id, name);
 	}
 
 	@Override
-	ResourceRole createResourceRole(String id, String name, String description) {
+	public ResourceRole createResourceRole(String id, String name, String description) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	Role createRole(String id, String name, String description) {
-		// TODO Auto-generated method stub
-		return null;
+	public Role createRole(String id, String name, String description) {
+		return new Role(id, name, description);
 	}
 
 	@Override
-	Permission createPermission(String id, String name, String description) {
-		// TODO Auto-generated method stub
-		return null;
+	public Permission createPermission(String id, String name, String description) {
+		return new Permission(id, name, description);
 	}
 }

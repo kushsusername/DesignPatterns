@@ -7,8 +7,9 @@ public class User implements Entitlement{
 
 	String id;
 	String name;
+	String description;
 	private String token;
-	private String voicePrint;
+	private String voicePrintOrPassword;
 	
 	List<ResourceRole> resourceRoles = new ArrayList<>();
 	
@@ -17,27 +18,56 @@ public class User implements Entitlement{
 		this.name = name;
 	}
 	
-	public List<ResourceRole> getResourceRoles() {
-		return resourceRoles;
+	@Override
+	public void visit(Visitor visitor) {
+		visitor.visit(this);
 	}
-	public void setResourceRoles(List<ResourceRole> roles) {
-		this.resourceRoles = roles;
+
+	@Override
+	public String getId() {
+		return id;
 	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	@Override
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	@Override
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
 	public String getToken() {
 		return token;
 	}
 	public void setToken(String token) {
 		this.token = token;
 	}
-	public String getVoicePrint() {
-		return voicePrint;
+
+	public String getVoicePrintOrPassword() {
+		return voicePrintOrPassword;
 	}
-	public void setVoicePrint(String voicePrint) {
-		this.voicePrint = voicePrint;
+	public void setVoicePrintOrPassword(String voicePrintOrPassword) {
+		this.voicePrintOrPassword = voicePrintOrPassword;
 	}
 
+	public List<ResourceRole> getResourceRoles() {
+		return resourceRoles;
+	}
+	public void setResourceRoles(List<ResourceRole> resourceRoles) {
+		this.resourceRoles = resourceRoles;
+	}
+	
 	@Override
 	public String toString() {
-		return "User <" + this.name + "> ";
+		return this.id;
 	}
 }

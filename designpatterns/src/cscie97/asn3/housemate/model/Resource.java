@@ -6,6 +6,7 @@ public class Resource {
 	String description;
 	
 	public Resource(String id, String description) {
-		
+		this.id = id;
+		this.description = description;
 	}
 }

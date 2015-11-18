@@ -1,9 +1,9 @@
 package cscie97.asn3.housemate.model;
 
-public abstract class AbstractEntitlementFactory {
+public interface AbstractEntitlementFactory {
 
-	abstract User createUser(String id, String name);
-	abstract ResourceRole createResourceRole(String id, String name, String description);
-	abstract Role createRole(String id, String name, String description);
-	abstract Permission createPermission(String id, String name, String description);
+	public User createUser(String id, String name);
+	public ResourceRole createResourceRole(String id, String name, String description);
+	public Role createRole(String id, String name, String description);
+	public Permission createPermission(String id, String name, String description);
 }
