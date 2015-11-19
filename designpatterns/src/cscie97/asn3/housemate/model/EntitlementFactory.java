@@ -9,8 +9,7 @@ public class EntitlementFactory implements AbstractEntitlementFactory {
 
 	@Override
 	public ResourceRole createResourceRole(String id, String name, String description) {
-		// TODO Auto-generated method stub
-		return null;
+		return new ResourceRole(id, name, description);
 	}
 
 	@Override

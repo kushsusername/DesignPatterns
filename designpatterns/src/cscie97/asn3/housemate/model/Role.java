@@ -47,7 +47,13 @@ public class Role implements Entitlement {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
+	public List<Entitlement> getEntitlements() {
+		return entitlements;
+	}
+	public void setEntitlements(List<Entitlement> entitlements) {
+		this.entitlements = entitlements;
+	}
+
 	@Override
 	public String toString() {
 		String entitlementsString = "";

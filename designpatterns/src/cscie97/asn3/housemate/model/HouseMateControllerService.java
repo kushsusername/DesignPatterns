@@ -3,8 +3,8 @@ package cscie97.asn3.housemate.model;
 public class HouseMateControllerService {
 
 	KnowledgeGraph kgraph = KnowledgeGraph.getInstance();
-	HouseMateModelService hmms = HouseMateModelService.getInstance();
 	KnowledgeGraphImporter kgImporter = new KnowledgeGraphImporter();
+	HouseMateModelService hmms = HouseMateModelService.getInstance();
 	Command command;
 	
 	/**When commands are provided to sensors such as the camera, they will call

@@ -8,10 +8,10 @@ public class ResourceRole implements Entitlement {
 	Role role;
 	Resource resource;
 	
-	public ResourceRole (String id, Role role, Resource resource) {
+	public ResourceRole (String id, String name, String description) {
 		this.id = id;
-		this.role = role;
-		this.resource = resource;
+		this.name = name;
+		this.description = description;
 	}
 	
 	@Override

@@ -10,6 +10,8 @@ public class HouseMateModelService {
 	Map<String, House> houses = new HashMap<>();
 	Map<String, Occupant> occupants = new HashMap<>();
 	
+	HouseMateEntitlementService hmes = HouseMateEntitlementService.getInstance();
+	AbstractEntitlementFactory entitlementFactory = null;
 	public static HouseMateModelService houseMateModelService;
 	
 	public static HouseMateModelService getInstance() {
@@ -52,10 +54,12 @@ public class HouseMateModelService {
 	
 	public void addOccupant(String occupantName, String occupantType, String occupantStatus) {
 		occupants.put(occupantName, new Occupant(occupantName, occupantStatus, occupantType));
+		hmes.createOccupantUser(occupantName);
 	}
 	public void setOccupantLocation(String occupantName, String houseName, String roomName) throws HouseNotFoundException {
 		if (houses.containsKey(houseName)) {
 			occupants.get(occupantName).setLocation(new Location(houseName, roomName));
+			
 		} else {
 			throw new HouseNotFoundException(houseName);
 		}
